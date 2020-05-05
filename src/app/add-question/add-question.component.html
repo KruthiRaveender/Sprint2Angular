@@ -1,0 +1,107 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<div class="container">
+
+        <h3>ADD QUESTION</h3>
+
+    <form #userForm="ngForm" (ngSubmit)='onSubmit(userForm.value)'>
+
+        <div class="form-group">
+
+            <label>QUESTION ID: </label>
+
+            <input required minlength="1" type="number" #id='ngModel' name="id" ngModel class="form-control">
+
+            <div *ngIf='id.errors && id.touched' class="alert alert-danger">
+
+                <div [hidden]='!id.errors.required'> Provide Question Id </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+
+            <label>QUESTION CONTENT: </label>
+
+            <input required minlength="6" type="text" #content='ngModel' name="content" ngModel class="form-control">
+
+            <div *ngIf='content.errors && content.touched' class="alert alert-danger">
+
+                <div [hidden]='!content.errors.required'>
+
+                    Provide question content
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>QUESTION OPTION1: </label>
+
+            <input required minlength="1" length="10" type="text" #option1='ngModel' name="option1" ngModel class="form-control">
+
+            <div *ngIf='option1.errors && option1.touched' class="alert alert-danger">
+
+                <div [hidden]='!option1.errors.required'> Provide Option1 </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+
+            <label>QUESTION OPTION2: </label>
+
+            <input required minlength="1" length="10" type="text" #option2='ngModel' name="option2" ngModel class="form-control">
+
+            <div *ngIf='option2.errors && option2.touched' class="alert alert-danger">
+
+                <div [hidden]='!option2.errors.required'> Provide Option2 </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+
+            <label>QUESTION OPTION3: </label>
+
+            <input required minlength="1" length="10" type="text" #option3='ngModel' name="option3" ngModel class="form-control">
+
+            <div *ngIf='option3.errors && option3.touched' class="alert alert-danger">
+
+                <div [hidden]='!option3.errors.required'> Provide Option3 </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label>QUESTION ANSWER_OPTION: </label>
+
+            <input required length="1" type="number" #answer_option='ngModel' name="answer_option" ngModel class="form-control">
+
+            <div *ngIf='answer_option.errors && answer_option.touched' class="alert alert-danger">
+
+                <div [hidden]='!answer_option.errors.required'> Provide answer option </div>
+
+                
+
+            </div>
+        </div>
+
+        
+
+        
+        <input [disabled]="userForm.invalid" type="submit" value="Add Employee" class="btn btn-primary">
+
+    </form>
+
+</div>
+<div>
+    <h2>{{message}}</h2>
+</div>

@@ -1,0 +1,44 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<div class="container">
+    <table class="table table-striped" *ngIf="Question && Question.length > 0  else elseBlock">
+        <thead>
+        <tr>
+            <th>QUESTION ID</th>
+            <th>QUESTION CONTENT</th>
+            <th>QUESTION OPTION1</th>
+            <th>QUESTION OPTION2</th>
+            <th>QUESTION OPTION3</th>
+            <th>QUESTION ANSWER_OPTION</th>
+            <th>DELETE QUESTION</th>
+            <th>EDIT QUESTION</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let q of Question">
+                <td> {{q.id}}</td>
+                <td> {{q.content}} </td>
+                <td> {{q.option1}} </td>
+                <td>{{q.option2}}</td>
+                <td> {{q.option3}} </td>
+                <td> {{q.answer_option}} </td>
+                <td>
+                    <button type="button" class="btn btn-large btn-block btn-primary" (click)=delete(q)>Delete</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-large btn-block btn-primary" (click)=update(q)>Edit</button>
+                </td>
+                <td>
+            </tr>
+        </tbody>
+    </table>
+    <ng-template #elseBlock>
+        <h4 align="center"> There are no questions to display,please add the questions! </h4>
+    </ng-template>
+
+</div>
+<div>
+    <h2>{{message}}</h2>
+</div>
